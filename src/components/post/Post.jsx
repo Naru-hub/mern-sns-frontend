@@ -4,8 +4,6 @@ import "./Post.css";
 import { Users } from "../../dummyData";
 
 export default function Post({ post }) {
-  // const user = Users.filter((user) => user.id === 1);
-  // console.log(user);
   return (
     <div className="post">
       <div className="postWrapper">
