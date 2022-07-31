@@ -20,6 +20,20 @@ export default function Share() {
       desc: desc.current.value,
     };
 
+    if (file) {
+      const data = new FormData();
+      const fileName = Date.now() + file.name;
+      data.append("name", fileName);
+      data.append("file", file);
+      newPost.img = fileName;
+      try {
+        // 画像APIを叩く
+        await axios.post("/upload", data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
     try {
       await axios.post("/posts", newPost);
       window.location.reload();
